@@ -3768,7 +3768,6 @@ class OTAGraph(FigureCanvas):
                 self.fig.canvas.print_figure(otagraph)
                 # external draw
                 sss_data=SSS_data.get("data")
-
                 external.draw_save(sss_data[0],sss_data[2],sss_data[1],[i*(-1) for i in sss_data[3]],
                                    save_path=os.path.join(self.logDir,"logging.png"))
                 self.fig.set_size_inches(size)

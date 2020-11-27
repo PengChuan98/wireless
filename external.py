@@ -11,7 +11,7 @@ HIGH = 8
 WIDTH = 50
 
 
-def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=80,
+def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=50,
               title="time/through/rssi/attn", save_path="logging.png"):
     x_labels = data_time
     x_ticks = [i for i in range(len(x_labels))][::data_interval]
@@ -54,8 +54,6 @@ def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, ti
     host.set_title(title, fontsize=25, color='r')
 
     fig.canvas.print_figure(save_path)
-
-    plt.show()
 
 
 if __name__ == '__main__':
