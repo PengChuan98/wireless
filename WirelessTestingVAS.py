@@ -3565,6 +3565,7 @@ class OTAGraph(FigureCanvas):
         self.RSSIary.append(rssi)
         self.TParray.append(throughput)
         self.Attengrp.append(attenuation)
+        self.SSS_time.append(time.strftime("%H:%M:%S"))
         ymax = self.ax.get_ylim()[1]
         if ymax < throughput:
             ymax = np.ceil(throughput / 5) * 5
@@ -3729,7 +3730,7 @@ class OTAGraph(FigureCanvas):
                 global Odata
                 global SSS_data
                 newRecord = {self.channel: (self.RSSIary, self.TParray)}
-                self.SSS_time.append(time.strftime("%H:%M:%S"))
+
                 SSS_record = {"data": (self.SSS_time,self.RSSIary, self.TParray,self.Attengrp)}
                 if len(self.TimeArray) == 0:
                     print "New Record, RSSIary, TParray"
