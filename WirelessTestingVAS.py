@@ -3416,6 +3416,8 @@ class OTAGraph(FigureCanvas):
         self.RSSIary = []
         self.Attengrp = []
         self.TimeArray = []
+        self.SSS_time=[]
+        
         if self.secsPerAtten:
             self.ax.set_xlabel('Time (seconds)', size=22)
             if self.attenlist:
@@ -3727,7 +3729,8 @@ class OTAGraph(FigureCanvas):
                 global Odata
                 global SSS_data
                 newRecord = {self.channel: (self.RSSIary, self.TParray)}
-                SSS_record = {"data": (time.strftime("%H:%M:%S"),self.RSSIary, self.TParray,self.Attengrp)}
+                self.SSS_time.append(time.strftime("%H:%M:%S"))
+                SSS_record = {"data": (self.SSS_time,self.RSSIary, self.TParray,self.Attengrp)}
                 if len(self.TimeArray) == 0:
                     print "New Record, RSSIary, TParray"
                     print newRecord, '\n', self.RSSIary, '\n', self.TParray
@@ -3762,8 +3765,14 @@ class OTAGraph(FigureCanvas):
                 with open(SSS_path, 'wb') as outfile:
                     json.dump(SSS_data, outfile)
                 self.fig.canvas.print_figure(otagraph)
+                # external draw
+                with open(SSS_path,'wr') as outfile:
+                    sss_data=json.load(outfile).get("data")
+                external.draw_save(sss_data[0],sss_data[2],sss_data[1],[i*(-1) for i in sss_data[3]],
+                                   save_path=os.path.join(self.logDir,"logging.png"))
                 self.fig.set_size_inches(size)
                 self.fig.canvas.draw()  # TBD
+
             except Exception as e:
                 print 'OTAGraph.otafinished: exception: ' + str(e)
                 traceback.print_exc()

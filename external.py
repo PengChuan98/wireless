@@ -11,8 +11,8 @@ HIGH = 8
 WIDTH = 50
 
 
-def draw(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=1, rotation=50,
-         title="time/through/rssi/attn"):
+def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=80,
+              title="time/through/rssi/attn", save_path="logging.png"):
     x_labels = data_time
     x_ticks = [i for i in range(len(x_labels))][::data_interval]
     through = data_through[::data_interval]
@@ -51,21 +51,21 @@ def draw(data_time, data_through, data_rssi, data_attn, data_interval=1, time_in
     line_attn, = parasite.plot(x_ticks, attn, "g-", label="Attn")
     line_rssi, = parasite.plot(x_ticks, rssi, "r-", label="Rssi")
 
-    host.set_title('title test', fontsize=25, color='r')
+    host.set_title(title, fontsize=25, color='r')
 
-    fig.canvas.print_figure("logging.png")
+    fig.canvas.print_figure(save_path)
 
     plt.show()
 
 
 if __name__ == '__main__':
-    # import numpy as np
-    #
-    # data = np.loadtxt("test.txt", delimiter=",", dtype=str, encoding='utf-8')
-    # draw(np.array(data[:, 0]).tolist(), np.array(data[:, 1], dtype=float).tolist(),
-    #      np.array(data[:, 2], dtype=float).tolist(),
-    #      list(map(lambda x: -x, np.array(data[:, 3], dtype=float).tolist())), 1, 100)
-    import time
+    import numpy as np
 
-    date = time.strftime("%H:%M:%S")
-    print(date)
+    data = np.loadtxt("test.txt", delimiter=",", dtype=str, encoding='utf-8')
+    draw_save(np.array(data[:, 0]).tolist(), np.array(data[:, 1], dtype=float).tolist(),
+         np.array(data[:, 2], dtype=float).tolist(),
+         list(map(lambda x: -x, np.array(data[:, 3], dtype=float).tolist())), 1, 100)
+    # import time
+    #
+    # date = time.strftime("%H:%M:%S")
+    # print(date)
