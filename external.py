@@ -63,8 +63,8 @@ if __name__ == '__main__':
 
     data = np.loadtxt("test.txt", delimiter=",", dtype=str, encoding='utf-8')
     draw_save(np.array(data[:, 0]).tolist(), np.array(data[:, 1], dtype=float).tolist(),
-         np.array(data[:, 2], dtype=float).tolist(),
-         list(map(lambda x: -x, np.array(data[:, 3], dtype=float).tolist())), 1, 100)
+              np.array(data[:, 2], dtype=float).tolist(),
+              list(map(lambda x: -x, np.array(data[:, 3], dtype=float).tolist())), 1, 100)
     # import time
     #
     # date = time.strftime("%H:%M:%S")
