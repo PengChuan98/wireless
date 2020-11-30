@@ -54,6 +54,7 @@ def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, ti
     host.set_title(title, fontsize=25, color='r')
 
     fig.canvas.print_figure(save_path)
+    plt.show()
 
 
 if __name__ == '__main__':

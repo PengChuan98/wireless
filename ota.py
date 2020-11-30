@@ -596,6 +596,7 @@ class Overtheair(QThread):
                                 i = 0
                                 self.nextTime += self.secsPerAtten
                     if len(ratearray) > 0:
+                        print ratearray
                         sum = 0
                         for r in ratearray:
                             sum += r
