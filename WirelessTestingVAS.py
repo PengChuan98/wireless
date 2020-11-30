@@ -2773,7 +2773,7 @@ class WirelessTesting(QMainWindow, GUIWiFiTest.Ui_WirelessTesting):
             self.timing.wait()
         self.AttenCheck()
         self.timing.initialize(str(self.SOLComText.text()), \
-                               str(self.RouterSelCombo.currentText()), \
+                               str(self.RoutaerSelCombo.currentText()), \
                                str(self.LinuxComText.text()), \
                                udws_commands, \
                                self.time_50chk.isChecked(), \

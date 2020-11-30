@@ -616,6 +616,7 @@ class Overtheair(QThread):
         to whether increase attenuation by what amount and/or decrease amount of samples for better graphing experience.
         """
         newsamp = samples
+        # SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
         if self.manual:
             self.atten = self.attenlist.pop(0)
         elif self.fiveGHz:
@@ -648,9 +649,11 @@ class Overtheair(QThread):
                     self.ptchange = 2
                     newsamp = int(ceil(int(samples)/2)+1)
                 self.atten += 1
+        # SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
         self.attenControl(self.atten)
         return newsamp
 
+    # SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSs
     def attenControl(self, attnint):
         #print 'Overtheair.attenControl(' + str(attnint) + ')' # TBD
         val = int(attnint)
@@ -661,7 +664,7 @@ class Overtheair(QThread):
         self.emit(SIGNAL("AttenUpdate(QString)"), str(val))
         self.emit(SIGNAL("mainstatUpdate(QString)"), 'Attenuator at ' + str(val))
         time.sleep(1) # TBD - How long should it take attenuator to change level?
-
+    # SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSs
 
 ################################################################################
 #
