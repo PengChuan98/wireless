@@ -30,7 +30,7 @@ def draw_save_Obsolete(data_time, data_through, data_rssi, data_attn, data_inter
     parasite.axis['right'].set_visible(True)
 
     host.set_ylabel("Through")
-    host.set_xlabel("x axes")
+    host.set_xlabel("TIME")
     parasite.set_ylabel("Rssi/Attn")
 
     parasite.axis['right'].major_ticklabels.set_visible(True)
@@ -57,7 +57,7 @@ def draw_save_Obsolete(data_time, data_through, data_rssi, data_attn, data_inter
     plt.show()
 
 
-def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=50,
+def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=20,
               title="time/through/rssi/attn", save_path="logging.png"):
     x_labels = data_time
     x_ticks = [i for i in range(len(x_labels))][::data_interval]
