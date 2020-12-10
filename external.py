@@ -2,8 +2,7 @@
 # @Time    : 2020/11/26 15:16
 
 # here put the import lib
-import time
-
+import math
 import matplotlib.pyplot as plt
 from mpl_toolkits.axisartist.parasite_axes import HostAxes, ParasiteAxes
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
@@ -120,7 +119,7 @@ def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, ti
     ax = fig.add_subplot(111)
 
     # x axis label and ticks
-    time_interval = int(len(x_ticks) / 100) if time_interval is None else time_interval
+    time_interval = math.ceil(len(x_ticks) / 100) if time_interval is None else time_interval
     x_tick = x_ticks[::time_interval]
     x_label = x_labels[::time_interval]
     ax.set_xticks(x_tick)
