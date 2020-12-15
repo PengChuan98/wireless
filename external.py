@@ -170,7 +170,7 @@ ax1.spines['right'].set_visible(False)
 if __name__ == '__main__':
     import numpy as np
 
-    data = np.loadtxt("test.txt", delimiter=",", dtype=str, encoding='utf-8')
+    data = np.loadtxt("test.txt", delimiter=",", dtype=str)
     draw_save(np.array(data[:, 0]).tolist(), np.array(data[:, 1], dtype=float).tolist(),
               list(map(lambda x: -x, np.array(data[:, 2], dtype=float).tolist())),
               np.array(data[:, 3], dtype=float).tolist(), 1, 20, title="")
