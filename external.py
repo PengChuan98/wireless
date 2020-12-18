@@ -57,7 +57,7 @@ def draw_save_Obsolete(data_time, data_through, data_rssi, data_attn, data_inter
     plt.show()
 
 
-def draw_save_Obsolete2(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=20,
+def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=20,
                         title="time/through/rssi/attn", save_path="logging.png"):
     x_labels = data_time
     x_ticks = [i for i in range(len(x_labels))][::data_interval]
@@ -107,7 +107,7 @@ def max_list(list_value):
     return temp
 
 
-def draw_save(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=None,
+def draw_save_Obsolete2(data_time, data_through, data_rssi, data_attn, data_interval=1, time_interval=None,
               title="time/through/rssi/attn", save_path="logging.png"):
     x_labels = data_time
     x_ticks = [i for i in range(len(x_labels))][::data_interval]
